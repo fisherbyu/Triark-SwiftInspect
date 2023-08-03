@@ -44,7 +44,7 @@ class Report() :
     
     def GeneratePage(self) :
         html = html = self.assembleHTML("documents/html/base.html")
-        st.markdown(f'<button kind="secondary" class="css-7ym5gk ef3psqc11"><div data-testid="stMarkdownContainer" class="css-1vbkxwb e1nzilvr4"><a class="css-1vbkxwb e1nzilvr4" href="data:text/html;base64,{base64.b64encode(html.encode()).decode()}" target="_blank">Open Assembled HTML</a></div></button>', unsafe_allow_html=True)
+        st.markdown(f'<button kind="secondary" class="css-7ym5gk ef3psqc11"><div data-testid="stMarkdownContainer" class="css-1vbkxwb e1nzilvr4"><a style="text-decoration: none; color: inherit;" href="data:text/html;base64,{base64.b64encode(html.encode()).decode()}" target="_blank">Open Assembled HTML</a></div></button>', unsafe_allow_html=True)
         
 
 class TileInspection(Report) :
