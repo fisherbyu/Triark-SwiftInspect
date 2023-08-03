@@ -62,7 +62,7 @@ class TileInspection(Report) :
         self.RoofJackFlashings = col2.number_input("Enter number of Damaged Roof Jack Flashings", value=0)
         self.SidewallFlashings = col1.number_input("Enter number of Damaged Sidewall Flashings", value=0)
         self.DryRot = col2.text_input("Describe Dry Rot Damage Areas")
-        self.AdditionalInfo = col1.text_input("Additional Input:")
+        self.AdditionalInfo = st.text_input("Additional Input:")
 
 def main() :
     oReport = TileInspection()
