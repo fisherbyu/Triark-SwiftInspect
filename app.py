@@ -31,6 +31,18 @@ class Report() :
         self.RemainingYears = col2.number_input("Enter Remaining Years", value=0)
         self.Leaks = col1.text_input("Enter number of Leaks Disclosed")
     
+    def GatherAdditionalDamages(self) :
+        # Collect Additional Damages (Call super after Declaring Title and Specific Damages in Child)
+        col1, col2 = st.columns(2)
+
+        self.Junctions = col1.number_input("Enter number of Damaged Junctions", value=0)
+        self.RubberCollars = col2.number_input("Enter number of Damaged Rubber Collars", value=0)
+        self.ChimneyFlashings = col1.number_input("Enter number of Damaged Chimney Flashings", value=0)
+        self.RoofJackFlashings = col2.number_input("Enter number of Damaged Roof Jack Flashings", value=0)
+        self.SidewallFlashings = col1.number_input("Enter number of Damaged Sidewall Flashings", value=0)
+        self.DryRot = col2.text_input("Describe Dry Rot Damage Areas")
+        self.AdditionalInfo = st.text_input("Additional Input:")
+    
     def CollectPhotos(self) :
         self.HomePhotos = st.file_uploader("Upload Home Photos", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
         self.DryRotPhotos = st.file_uploader("Upload Photos of Dry Rot", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
@@ -60,29 +72,28 @@ class Report() :
 class TileInspection(Report) :
     def __init__(self):
         super().__init__()
+        self.GatherAdditionalDamages()
+        self.CollectPhotos()
+        
+    def GatherAdditionalDamages(self):
+        # Title and Columns
         st.header("Roof Damages")
         col1, col2 = st.columns(2)
+
+        # Tile Specific Inputs
         self.BrokenTiles = col1.number_input("Enter number of Broken Tiles", value=0)
         self.DamagedTiles = col2.number_input("Enter number of Damaged Tiles", value=0)
         self.BrokenRidgeRaketiles = col1.number_input("Enter number of Broken Ridge or Rake Tiles", value=0)
         self.SlippedTiles = col2.number_input("Enter number of Slipped Tile Areas", value=0)
-        self.Junctions = col1.number_input("Enter number of Damaged Junctions", value=0)
-        self.RubberCollars = col2.number_input("Enter number of Damaged Rubber Collars", value=0)
-        self.ChimneyFlashings = col1.number_input("Enter number of Damaged Chimney Flashings", value=0)
-        self.RoofJackFlashings = col2.number_input("Enter number of Damaged Roof Jack Flashings", value=0)
-        self.SidewallFlashings = col1.number_input("Enter number of Damaged Sidewall Flashings", value=0)
-        self.DryRot = col2.text_input("Describe Dry Rot Damage Areas")
-        self.AdditionalInfo = st.text_input("Additional Input:")
-
-        self.CollectPhotos()
+        super().GatherAdditionalDamages()
 
         
 
 def main() :
-    oReport = TileInspection()
-    
-    if st.button("Create Page") :
-        oReport.GeneratePage()
+    if st.button("Tile Inspection") :
+        oReport = TileInspection()
+        if st.button("Create Page") :
+            oReport.GeneratePage()
 
 if __name__ == "__main__":
     main()
