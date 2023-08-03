@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        .pagediv {max-width: 800px; padding: 0px 48px 0px 48px; margin: 0px auto; font-family: 'Roboto', sans-serif; max-height: 1040px;}
+        em {font-weight: bold; text-decoration: underline; color:#000000; font-style: normal;}
+        .headimg {max-height: 50pt;}
+        .headtext {font-size: 7pt;}
+        .bordertest {border: solid black}
+        .triarkred {color: #c34332;}
+        .bold {font-weight: 1000;}
+        .underline {text-decoration: underline;}
+        .size1 {font-size: 11pt;}
+        .centertext {text-align: center;}
+        .head1 {font-size: 20pt; font-weight: lighter;}
+        .head2 {font-size: 14pt; text-decoration: underline; font-weight: bold;}
+        .blockdiv {width: 100%; margin: auto; display:flex; flex-direction: row;}
+        .blockdiv>p {width: 50%;}
+        .subdivalt {width: 25%; margin: auto;}
+        .subleft {margin-left: 0%; margin-right: auto;}
+        .subright {margin-right: 0%; margin-left: auto;}
+        .line1 {display: flex; flex-direction: row;}
+        .lineitem {width: 100%; display: flex; flex-direction: row;}
+        .subline1 {width: 60%;}
+        .subline2 {width: 35%; margin-left: 5%;}
+        .grid-container {display: grid; gap: 2.5px; grid-template-columns: 75% 25%; background-color: black;}
+        .grid-item {border: none; background-color: white; padding: 5pt;}
+        .gridleft {grid-column: 1;}
+        .gridright {grid-column: 2; padding-left: 10pt;}
+        .grid-cross {grid-column: 1/3;}
+        .grid-quad {display: grid; grid-template-columns: 23% 23% 23% 23%;}
+        .quad1 {grid-column: 1;}
+        .quad2 {grid-column: 2;}
+        .quad3 {grid-column: 3;}
+        .quad4 {grid-column: 4;}
+        .spacer {background-color: white;}
+        .underlinediv {border-bottom: black 10pt solid; width: 75%; margin: auto;}
+        .cline {border-bottom: black 2pt solid; margin: auto; width: 100%; border-top: black 2pt solid;}
+        .photodiv img {max-height: 175pt; margin: 10pt;}
+    
+    </style>
+</head>
+<body>
+    <div class="pagediv">
+                    
+            <div>
+                <div class="blockdiv">
+                    <img class="subleft headimg" src="https://app.jobnimbus.com/api1/files/l4yi4fxpsvob1uinic7509o">
+                    <div class="subdiv subright">
+                        <p class="centertext headtext">
+                            Roofing License Number: 1056425 <br>514 Elefa St. - Roseville CA 95678<br>
+                            <b class="triarkred">
+                                (916) 276-8632 <br> triarkroofing@gmail.com
+                            </b>
+                        </p>
+                    </div>
+                </div>
+                <div class="blockdiv">
+                    <div class="subdiv subleft">
+                        <p>
+                            <b>Client Name:</b> {{ JobPrimaryContactDisplayName }}<br>
+                            <b>Client #:</b> {{ JobPrimaryContactHomePhone }}<br>
+                            <b>Jobsite:</b> {{ JobAddressLine1 }}, {{ JobCity }} {{ JobStateText }}<br>
+                            <b>Inspection Date:</b> {{ JobInspectionDate }}<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="">
+                    <p class="head1 centertext cline">
+                        ROOF INSPECTION REPORT
+                    </p>
+                    <br>
+                </div>
+                <div class="grid-quad">
+                    <div class="quad1">
+                        <p>
+                            <em>Roof Type</em><br>
+                            Composition Shingle
+                        </p>
+                    </div>
+                    <div class="quad2">
+                        <p>
+                            <em>Color</em><br>
+                            {{ JobRoofColor }}
+                        </p>
+                    </div>
+                    <div class="quad3">
+                        <p>
+                            <em>Stories</em><br>
+                            {{ JobStories }}
+                        </p>
+                    </div>
+                    <div class="quad4">
+                        <p>
+                            <em>Roof Layers</em><br>
+                            1 Layer of 30 pound felt underlayment
+                        </p>
+                    </div>
+                </div>
+                <div class="grid-quad">
+                    <div class="quad1">
+                        <p>
+                            <em>Estimated Age</em><br>
+                            {{ JobEstimatedRoofAge }} Years
+                        </p>
+                    </div>
+                    <div class="quad2">
+                        <p>
+                            <em>Remaining Years</em><br>
+                            {{ JobRemainingRoofAge }} Years
+                        </p>
+                    </div>
+                    <div class="quad3">
+                        <p>
+                            <em>Pitch</em><br>
+                            {{ JobRoofPitch }}
+                        </p>
+                    </div>
+                    <div class="quad4">
+                        <p>
+                            <em>Leaks</em><br>
+                            Disclosed: {{ JobRoofLeaks }}
+                        </p>
+                    </div>
+                </div>
+                <p class="head1 centertext cline">
+                    FINDINGS
+                </p>
+            </div>
+        <div class="grid-container">
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Damaged Shingles</b><br>
+                    Composition shingles protect the roof from water and debris, preventing damage and leaks. With age shingles can have granular degradation that will then expose the fiberglass and asphalt material of shingle. This is a good indication of a roofing system useful life. Other damage to shingles can be caused by wind and tree damage.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Damaged Shingles: </b><br>{{ JobDamagedShingles }}<br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Ridge Caps</b><br>
+                    Ridge caps between hips and ridges protect the roof from leaks between segment intersections and roof ridge line and oftentimes need replacement.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Damaged Hips:</b><br>{{ JobHips }} <br>
+                    <b>-Damaged Ridges:</b><br>{{ JobRidges }} <br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Rubber Collars</b><br>
+                    The plumbing vent pipes on the top of the home are fitted with rubber collars to prevent leaks, but these collars are often damaged or missing entirely and need to be replaced to prevent water from entering the sides of pipe vent.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Damaged Rubber Collars:</b><br>{{ JobRubberCollarsNeedingRepairs }} <br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Sidewall, Chimney, and Roof Jacks</b><br>
+                    Roof flashings protect underlayment where the roof meets the chimney, or any roof jacks or sidewalls. Improper installation, age, and debris buildup negates this protection and leads to water damage.
+                </p>
+                <br><br><br><br><br><br><br><br><br>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>Flashings to Repair:</b><br>
+                    -Chimney:<br>{{ JobChimneyFlashingsToRepair }} <br>
+                    -Roof Jack:<br>{{ JobRoofJacksNeedingRepairs }} <br>
+                    -Sidewall:<br>{{ JobSidewallFlashingsToRepair }} <br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Valley Flashings</b><br>
+                    Valley Flashings protect underlayment at roof valleys, allowing water to flow over the underlayment per installation code. Excessive debris can obstruct the flow and push water off the flashing and on to the underlayment.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Valley Flashings to Repair:</b><br>{{ JobValleyFlashingsToRepair }}<br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Dry Rot</b><br>
+                    Dry Rot is fungal wood decay most often caused by water intrusion and lack of air flow in between roof tiles and underlayment. Dry rot can lead to significant roof damage and requires the area to be opened up, removed and replaced.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Dry Rot Damage</b><br>{{ JobDryRotDamage }} <br>
+                </p>
+            </div>
+            <div class="grid-cross grid-item ">
+                <p>
+                <b>-Additional Info</b><br>
+                <br>
+                {{ JobAdditionalRoofInfo }}
+                </p>
+            </div>
+            
+        </div>
+        <br>
+            <p>
+                <b>Roof repair:</b><b class="triarkred"> Recommended</b>
+            </p>
+            [[estimates]]<br>
+            [[document_attachments]]
+    </div>
+</body>
+</html>

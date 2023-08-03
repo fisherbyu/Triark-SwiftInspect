@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        .pagediv {max-width: 800px; padding: 0px 48px 0px 48px; margin: 0px auto; font-family: 'Roboto', sans-serif; max-height: 1040px;}
+        em {font-weight: bold; text-decoration: underline; color:#000000; font-style: normal;}
+        .headimg {max-height: 50pt;}
+        .headtext {font-size: 7pt;}
+        .bordertest {border: solid black}
+        .triarkred {color: #c34332;}
+        .bold {font-weight: 1000;}
+        .underline {text-decoration: underline;}
+        .size1 {font-size: 11pt;}
+        .centertext {text-align: center;}
+        .head1 {font-size: 20pt; font-weight: lighter;}
+        .head2 {font-size: 14pt; text-decoration: underline; font-weight: bold;}
+        .blockdiv {width: 100%; margin: auto; display:flex; flex-direction: row;}
+        .blockdiv>p {width: 50%;}
+        .subdivalt {width: 25%; margin: auto;}
+        .subleft {margin-left: 0%; margin-right: auto;}
+        .subright {margin-right: 0%; margin-left: auto;}
+        .line1 {display: flex; flex-direction: row;}
+        .lineitem {width: 100%; display: flex; flex-direction: row;}
+        .subline1 {width: 60%;}
+        .subline2 {width: 35%; margin-left: 5%;}
+        .grid-container {display: grid; gap: 2.5px; grid-template-columns: 75% 25%; background-color: black;}
+        .grid-item {border: none; background-color: white; padding: 5pt;}
+        .gridleft {grid-column: 1;}
+        .gridright {grid-column: 2; padding-left: 10pt;}
+        .grid-cross {grid-column: 1/3;}
+        .grid-quad {display: grid; grid-template-columns: 23% 23% 23% 23%;}
+        .quad1 {grid-column: 1;}
+        .quad2 {grid-column: 2;}
+        .quad3 {grid-column: 3;}
+        .quad4 {grid-column: 4;}
+        .spacer {background-color: white;}
+        .underlinediv {border-bottom: black 10pt solid; width: 75%; margin: auto;}
+        .cline {border-bottom: black 2pt solid; margin: auto; width: 100%; border-top: black 2pt solid;}
+        .photodiv img {max-height: 175pt; margin: 10pt;}
+    
+    </style>
+</head>
+<body>
+    <div class="pagediv">
+        <div class="blockdiv">
+            <img class="subleft headimg" src="https://app.jobnimbus.com/api1/files/l4yi4fxpsvob1uinic7509o">
+                <div class="subdiv subright">
+                    <p class="centertext headtext">
+                        Roofing License Number: 1056425 <br>514 Elefa St. - Roseville CA 95678<br>
+                        <b class="triarkred">
+                            (916) 276-8632 <br> triarkroofing@gmail.com
+                        </b>
+                    </p>
+                </div>
+        </div>
+        <div class="blockdiv">
+            <div class="subdiv subleft">
+                <p>
+                    <b>Client Name:</b> {{ JobPrimaryContactDisplayName }}<br>
+                    <b>Client #:</b> {{ JobPrimaryContactHomePhone }}<br>
+                    <b>Jobsite:</b> {{ JobAddressLine1 }}, {{ JobCity }} {{ JobStateText }}<br>
+                    <b>Inspection Date:</b> {{ JobInspectionDate }}<br>
+                </p>
+            </div>
+        </div>
+        <div class="">
+            <p class="head1 centertext cline">
+                ROOF INSPECTION REPORT
+            </p>
+            <br>
+        </div>
+        <div class="grid-quad">
+            <div class="quad1">
+                <p>
+                    <em>Roof Type</em><br>
+                    {{ JobRoofType }}
+                </p>
+            </div>
+            <div class="quad2">
+                <p>
+                    <em>Color</em><br>
+                    {{ JobRoofColor }}
+                </p>
+            </div>
+            <div class="quad3">
+                <p>
+                    <em>Stories</em><br>
+                    {{ JobStories }}
+                </p>
+            </div>
+            <div class="quad4">
+                <p>
+                    <em>Roof Layers</em><br>
+                    1 Layer of 30 pound felt underlayment
+                </p>
+            </div>
+        </div>
+        <div class="grid-quad">
+            <div class="quad1">
+                <p>
+                    <em>Estimated Age</em><br>
+                    {{ JobEstimatedRoofAge }} Years
+                </p>
+            </div>
+            <div class="quad2">
+                <p>
+                    <em>Remaining Years</em><br>
+                    {{ JobRemainingRoofAge }} Years
+                </p>
+            </div>
+            <div class="quad3">
+                <p>
+                    <em>Pitch</em><br>
+                    {{ JobRoofPitch }}
+                </p>
+            </div>
+            <div class="quad4">
+                <p>
+                    <em>Leaks</em><br>
+                    Disclosed: {{ JobRoofLeaks }}
+                </p>
+            </div>
+        </div>
+        <p class="head1 centertext cline">
+            FINDINGS
+        </p>
+        <div class="grid-container">
+            <div class=" grid-item gridleft">
+                    <p>
+                        <b>-Damaged Tile</b><br>
+                        Roof Tiles are the main defense against rain and debris on the roof and can be cracked by wind damage or foot traffic. Depending on damage, some broken tiles need replacement while some only need to be repaired with caulking. Another concern is slipped tiles, which are not damaged, but need to be re-positioned to prevent water and sun exposure to roof underlayment.
+                    </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Broken Tiles: </b><br>{{ JobBrokenTiles }} <br>
+                    <b>-Damaged Tiles: </b><br>{{ JobMendableTiles }} <br>
+                    <b>-Broken Ridge/Rake Tiles:<br></b> {{ JobDamagedRidgerakeTiles }} <br>
+                    <b>-Slipped Tile Areas:<br></b> {{ JobSlippedTiles }} <br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Junctions</b><br>
+                    Junctions between ridge, hip and rake tiles protect the roof from leaks between segment intersections and oftentimes need to be re-sealed with caulk and/or lead flashing.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Damaged Junctions:</b><br>{{ JobJunctionsToBeSealed }} <br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Rubber Collars</b><br>
+                    The plumbing vent pipes on the top of the home are fitted with rubber collars to prevent leaks, but these collars are often damaged or missing entirely and need to be replaced to prevent water from entering the sides of roof jack flashing.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Damaged Rubber Collars:</b><br>{{ JobRubberCollarsNeedingRepairs }} <br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Sidewall, Chimney, and Roof Jacks</b><br>
+                    Roof flashings protect underlayment where the roof meets the chimney, or any roof jacks or sidewalls. Improper installation or debris buildup negates this protection and leads to water damage. Repairs in these areas require the roof to be opened up to remove debris and re-secure flashings.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>Flashings to Repair:</b><br>
+                    -Chimney:<br>{{ JobChimneyFlashingsToRepair }} <br>
+                    -Roof Jack:<br>{{ JobRoofJacksNeedingRepairs }} <br>
+                    -Sidewall:<br>{{ JobSidewallFlashingsToRepair }}
+                </p>
+            </div>
+            
+        
+        </div>
+    </div>
+    <br><br>
+    <!--Page Break-->
+
+    <div class="pagediv">
+        <div class="grid-container">
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Valley Flashings</b><br>
+                    Valley Flashings protect underlayment at roof valleys, allowing water to flow over the underlayment per installation code. Excessive debris can obstruct the flow and push water off the flashing and on to the underlayment. Repairs in these areas requires the valley to be opened up for debris to be removed.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Valley Flashings to Repair:</b><br>{{ JobValleyFlashingsToRepair }}<br>
+                </p>
+            </div>
+            <div class=" grid-item gridleft">
+                <p>
+                    <b>-Dry Rot</b><br>
+                    Dry Rot is fungal wood decay most often caused by water intrusion and lack of air flow in between roof tiles and underlayment. Dry rot can lead to significant roof damage and requires the area to be opened up, removed and replaced.
+                </p>
+            </div>
+            <div class=" grid-item gridright">
+                <p>
+                    <b>-Dry Rot Damage</b><br>{{ JobDryRotDamage }} <br>
+                </p>
+            </div>
+            <div class="grid-cross grid-item ">
+                <p>
+                <b>-Additional Info</b><br>
+                <br>
+                {{ JobAdditionalRoofInfo }}
+                </p>
+            </div>
+        </div>
+        <br>
+        <p>
+            <b>Roof repair:</b><b class="triarkred"> Recommended</b>
+        </p>
+        [[estimates]]<br>
+        [[document_attachments]]
+    </div>
+</body>
+</html>
