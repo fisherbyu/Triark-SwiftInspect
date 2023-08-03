@@ -30,6 +30,16 @@ class Report() :
         self.EstimatedAge = col1.number_input("Enter Estimated Roof Age", value=0)
         self.RemainingYears = col2.number_input("Enter Remaining Years", value=0)
         self.Leaks = col1.text_input("Enter number of Leaks Disclosed")
+    
+    def CollectPhotos(self) :
+        self.HomePhotos = st.file_uploader("Upload Home Photos", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        self.DryRotPhotos = st.file_uploader("Upload Photos of Dry Rot", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        self.JackPhotos = st.file_uploader("Upload Photos of Sidewall, Headwall, Chimney and Roof Jacks", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        self.ValleyPhotos = st.file_uploader("Upload Photos of Damaged Valleys", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        self.RubberCollars = st.file_uploader("Upload Rubber Collars Photos", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        self.Junctions = st.file_uploader("Upload Photos of Damaged Junctions", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        self.Damaged = st.file_uploader("Upload Photos of Damaged Tiles or Shingles", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+        self.OtherPhotos = st.file_uploader("Upload Other Photos", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
         
     def assembleHTML(self, filepath):
         # Read in HTML String
@@ -63,6 +73,10 @@ class TileInspection(Report) :
         self.SidewallFlashings = col1.number_input("Enter number of Damaged Sidewall Flashings", value=0)
         self.DryRot = col2.text_input("Describe Dry Rot Damage Areas")
         self.AdditionalInfo = st.text_input("Additional Input:")
+
+        self.CollectPhotos()
+
+        
 
 def main() :
     oReport = TileInspection()
